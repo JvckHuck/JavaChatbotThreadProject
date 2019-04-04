@@ -2,20 +2,21 @@ import java.util.Scanner;
 
 class Main 
 {
-  Computerbot computerbot = new Computerbot();
-  Customerbot customerbot = new Customerbot();
-
   public static void main(String[] args) 
   {
-    Computerbot computerbot = new Computerbot();
-    Customerbot customerbot = new Customerbot();
+    Computerbot computer = new Computerbot();
+    Customerbot customer = new Customerbot();
 
-    System.out.println("I am the Custom PC Bot. What is your name?");
-    System.out.println("Nice to meet you! What would you like to choose first?");
-    //System.out.println(statement);
-    System.out.println("What would you rather have, an SSD card or a Hard drive?");
+    
+    System.out.println(computer.getGreeting());
 
-    System.out.println("Which graphics card would you like?");
+    while (customer.customerResponse != "Goodbye!")
+    {
+      System.out.println(customer.getCustomerResponse(computer.computerResponse));
+      System.out.println(computer.getComputerResponse(customer.customerResponse));
+    }
+    
+    
   }
 
 }// end of Main class
