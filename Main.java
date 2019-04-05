@@ -9,8 +9,10 @@ class Main
 
     
     System.out.println(computer.getGreeting());
-
-    while (customer.customerResponse != "Goodbye!")
+// MINICH SAYS - you cannot check string equality with == or !=
+// YOU MUST USE .equals method and !
+    //while (customer.customerResponse != "Goodbye!")
+    while (!customer.customerResponse.equals("Goodbye"))
     {
       System.out.println(customer.getCustomerResponse(computer.computerResponse));
       System.out.println(computer.getComputerResponse(customer.customerResponse));
@@ -20,3 +22,5 @@ class Main
   }
 
 }// end of Main class
+
+
