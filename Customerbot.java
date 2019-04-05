@@ -61,7 +61,7 @@ public class Customerbot extends Main
 
   public String getCustomerResponse(String computerResponse)
   {
-    if (findKeyword(computerResponse, "hello", 0) >= 0)
+    if (findKeyword(computerResponse, "Hello", 0) >= 0 || findKeyword(computerResponse, "What's up", 0) >= 0 || findKeyword(computerResponse, "Howdy", 0) >= 0 || findKeyword(computerResponse, "Greetings", 0) >= 0)
     {
       customerResponse = "Hi!";
     }
@@ -70,7 +70,10 @@ public class Customerbot extends Main
     {
       customerResponse = chooseMood();
     }
-
+    else if (findKeyword(computerResponse, "That's great! Would you like to choose some graphics for your computer?", 0) >= 0)
+    {
+      customerResponse = "Sure!";
+    }
     else if (findKeyword(computerResponse, "", 0) >= 0)
     {
       customerResponse = "Goodbye!";
