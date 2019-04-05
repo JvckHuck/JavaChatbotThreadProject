@@ -11,34 +11,34 @@ public class Computerbot extends Main
       computerResponse = "";
       //myBoolean = false;
 
-      // TODO initialize all proeprties dfkjd
+      // TODO initialize all properties
 
       greetings = new String[4];
       greetings[0] = "Hello";
-      greetings[1] = "What's up";
+      greetings[1] = "What's up?";
       greetings[2] = "Howdy";
       greetings[3] = "Greetings";
    } 
 
-  // other constructor
-
-  // TODO
+  // accessors 
+   
+   // TODO
 
    // ##################### accessors
 
    public String getGreeting()
    {
-      return greetings[(int) (Math.random() * greetings.length)];
+      computerResponse = greetings[(int) (Math.random() * greetings.length)];
+      return computerResponse;
    }
    
    // Dipsplays different Graphics Cards
-   public String getGraphicsCard()  
+   public void getGraphicsCard()  
    {
      for (int i = 0; i < graphicsCards.length; i++)
      {
-       System.out.println((i + 1) + "" + graphicsCards[i]);
+       System.out.println((i + 1) + ". " + graphicsCards[i]);
      }
-     return "hi";
    }
 
    public String getDateAndTime()
@@ -86,9 +86,9 @@ public class Computerbot extends Main
        computerResponse = "That's too bad. Maybe choosing some graphics for your computer will cheer you up!";
      }
 
-     else if (findKeyword(customerResponse, "", 0) >= 0)
+     else if (findKeyword(customerResponse, "Sure!", 0) >= 0)
      {
-       computerResponse = "Goodbye";
+       computerResponse = "Would you like " + graphicsCards[ (int) (Math.random() * graphicsCards.length - 1)    ];
      }
 
      else
@@ -161,6 +161,9 @@ public class Computerbot extends Main
    // ############################# instance fields (aka properties)
 
     public String computerResponse;           // The computerBot's response
+
+    private String graphicsCard;
+
     private boolean weatherPrompt;            // If the computerBot will ask about the weather
     private int amountOfItems;                // The amount of items that have been chosen
     private double estimatedPrice;            // How much the customerBot should be expected to spend on the chosen items
