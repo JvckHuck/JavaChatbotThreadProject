@@ -3,6 +3,8 @@ public class Customerbot extends Main
   public Customerbot()
   {
     customerResponse = "";
+
+    graphicsCardChoice = ((int) (Math.random() * (graphicsCards.length - 1))) + 1;
   }
   
   /**public String chooseItem()
@@ -68,15 +70,25 @@ public class Customerbot extends Main
 
     else if (findKeyword(computerResponse, "How are you", 0) >= 0)
     {
-      customerResponse = chooseMood();
+      customerResponse = "I'm " + chooseMood();
     }
-    else if (findKeyword(computerResponse, "That's great! Would you like to choose some graphics for your computer?", 0) >= 0)
+    else if (findKeyword(computerResponse, "some graphics", 0) >= 0)
     {
       customerResponse = "Sure!";
     }
+    else if (findKeyword(computerResponse, "estimated", 0) >= 0)
+    {
+
+      customerResponse = "I'd like number " + graphicsCardChoice + ".";
+
+    }
+    else if (findKeyword(computerResponse, "cost", 0) >= 0)
+    {
+      customerResponse = "Sounds perfect!";
+    }
     else if (findKeyword(computerResponse, "", 0) >= 0)
     {
-      customerResponse = "Goodbye!";
+      customerResponse = "";
     }
 
     else
@@ -90,6 +102,8 @@ public class Customerbot extends Main
   //instances (aka properties)
 
   public String customerResponse;
+
+  public int graphicsCardChoice;
 
   public String[] moods =
   {
@@ -114,6 +128,16 @@ public class Customerbot extends Main
     "Crimson",
     "Cobalt"
   };
+
+  public String[] graphicsCards =
+     {
+      "Nvidia Titan V",                // $2,999.99
+      "Nvidia Titan RTX",              // $2,499.99
+      "Nvidia GeForce RTX 2080 Ti",    // $1,499.99
+      "Nvidia GeForce RTX 2070",       // $1,099.99
+      "Nvidia GeForce GTX 1080",       // $749.99
+      "Nvidia GeForce GTX 1050 Ti"     // $499.99
+     };
 
   private String[] randomResponses =
    {
