@@ -35,10 +35,13 @@ public class Computerbot extends Main
    // Dipsplays different Graphics Cards
    public void getGraphicsCard()  
    {
+     System.out.println("ComputerBot: You can choose from these:");
+
      for (int i = 0; i < graphicsCards.length; i++)
      {
        System.out.println((i + 1) + ". " + graphicsCards[i]);
      }
+     
    }
 
    public String getDateAndTime()
@@ -88,7 +91,20 @@ public class Computerbot extends Main
 
      else if (findKeyword(customerResponse, "Sure!", 0) >= 0)
      {
-       computerResponse = "Would you like " + graphicsCards[ (int) (Math.random() * graphicsCards.length - 1)    ];
+       getGraphicsCard();
+
+       computerResponse = "The estimated prices will be shown after you have chosen the parts that you want.";
+     }
+     
+      else if (findKeyword(customerResponse, "perfect", 0) >= 0)
+     {
+        computerResponse = "Thank you for shopping at Krazy Gamers";
+     }
+    
+     else if (findKeyword(customerResponse, "like number", 0) >= 0)
+     {
+       int graphicsChoice = Integer.parseInt(customerResponse.substring(16, 17));
+       computerResponse = "That one will cost about " + graphicsCardPrices[graphicsChoice];
      }
 
      else
@@ -151,6 +167,11 @@ public class Computerbot extends Main
     return -1;
   } // end of findKeyword method
    
+   public static void clearScreen() 
+   {  
+    System.out.print("\033[H\033[2J");  
+    System.out.flush();  
+   }  
    
    
    
@@ -170,7 +191,7 @@ public class Computerbot extends Main
 
    private String[] greetings;            // The different greetings that the computerbot uses
 
-   private String[] goodbyes = 
+   private String[] goodbye = 
    {
      "bye", 
      "goodbye", 
@@ -192,12 +213,22 @@ public class Computerbot extends Main
 
    public String[] graphicsCards =
      {
-      "Nvidia Titan V",                // $2,999.99
-      "Nvidia Titan RTX",              // $2,499.99
-      "Nvidia GeForce RTX 2080 Ti",    // $1,499.99
-      "Nvidia GeForce RTX 2070",       // $1,099.99
-      "Nvidia GeForce GTX 1080",       // $749.99
-      "Nvidia GeForce GTX 1050 Ti"     // $499.99
+      "Nvidia Titan V",
+      "Nvidia Titan RTX",
+      "Nvidia GeForce RTX 2080 Ti",
+      "Nvidia GeForce RTX 2070",
+      "Nvidia GeForce GTX 1080",
+      "Nvidia GeForce GTX 1050 Ti"
+     };
+
+     public String[] graphicsCardPrices =
+     {
+      "$2,999.99",
+      "$2,499.99",
+      "$1,499.99",
+      "$1,099.99",
+      "$749.99",
+      "$499.99"
      };
 
    public String[] processors =
@@ -225,6 +256,7 @@ public class Computerbot extends Main
     "Very interesting",
     "Sounds like fun!"
    };
+  
     
    private String[] rgbOptions =
    {
