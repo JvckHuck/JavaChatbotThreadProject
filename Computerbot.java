@@ -172,18 +172,31 @@ public class Computerbot extends Main
     System.out.print("\033[H\033[2J");  
     System.out.flush();  
    }  
+
+   public void enableShoppingCart()
+   {
+     trueOrFalse = (int) (Math.random() * 2);
+
+     if (trueOrFalse == 1)
+     {
+       shoppingCartBoolean = true;
+     }
+     else
+     {
+       shoppingCartBoolean = false;
+     }
+
+   }
    
-   
-   
-
-
-
-
    // ############################# instance fields (aka properties)
 
     public String computerResponse;           // The computerBot's response
 
+    private int trueOrFalse;
+
     private String graphicsCard;
+
+    private boolean shoppingCartBoolean;
 
     private boolean weatherPrompt;            // If the computerBot will ask about the weather
     private int amountOfItems;                // The amount of items that have been chosen
